@@ -3,9 +3,9 @@ requires = ["setuptools>=70"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "telecom-churn-prediction"
+name = "telecom-churn-uplift-modeling"
 version = "1.0.0"
-description = "Leakage-safe telecom customer churn prediction project"
+description = "Treatment-aware telecom churn targeting and retention campaign evaluation"
 requires-python = ">=3.10"
 
 [tool.pytest.ini_options]
