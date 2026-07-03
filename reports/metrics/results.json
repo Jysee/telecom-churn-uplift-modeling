@@ -1,0 +1,78 @@
+{
+  "dataset": {
+    "rows": 11896,
+    "features": 178,
+    "numeric_features": 160,
+    "categorical_features": 18,
+    "churn_rate": 0.03429724277067922,
+    "treatment_rate": 0.7573974445191661,
+    "control_churn_rate": 0.036382536382536385,
+    "treated_churn_rate": 0.03362930077691454
+  },
+  "split": {
+    "development_rows": 9516,
+    "holdout_rows": 2380,
+    "test_size": 0.2,
+    "cv_splits": 5,
+    "random_seed": 42
+  },
+  "selected_model": "outcome_risk_catboost",
+  "selection_metric": "OOF AUUC",
+  "oof_policy": {
+    "fraction": 0.0,
+    "n_selected": 0,
+    "uplift_rate": 0.0,
+    "estimated_prevented_churns": 0.0,
+    "estimated_net_value": 0.0,
+    "score_threshold": null
+  },
+  "holdout_uplift_metrics": {
+    "auuc": 0.007112370621965494,
+    "qini": 0.005831047658408702,
+    "fraction": 0.2,
+    "n_selected": 476,
+    "control_churn_rate": 0.11864406779661017,
+    "treated_churn_rate": 0.09497206703910614,
+    "uplift_rate": 0.02367200075750403,
+    "estimated_prevented_churns": 11.267872360571918
+  },
+  "holdout_factual_metrics": {
+    "roc_auc": 0.8960260363138062,
+    "average_precision": 0.20226918488485857,
+    "brier_score": 0.03277080992995355,
+    "log_loss": 0.1226710230402461
+  },
+  "bootstrap_95_ci": {
+    "auuc": {
+      "mean": 0.006686858319855533,
+      "ci_low": -0.008568241102875193,
+      "ci_high": 0.02226262264203921
+    },
+    "qini": {
+      "mean": 0.005624988403681816,
+      "ci_low": -0.0007042563235074223,
+      "ci_high": 0.01289926091272133
+    },
+    "uplift_at_k": {
+      "mean": 0.023366128070949645,
+      "ci_low": -0.04582580388637077,
+      "ci_high": 0.09851410659201511
+    }
+  },
+  "business_config": {
+    "customer_value": 500.0,
+    "contact_cost": 10.0,
+    "offer_cost": 40.0,
+    "max_contact_rate": 0.3,
+    "top_k_fraction": 0.2
+  },
+  "library_versions": {
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.9.0",
+    "catboost": "1.2.10",
+    "joblib": "1.5.3",
+    "matplotlib": "3.11.0",
+    "seaborn": "0.13.2"
+  }
+}
