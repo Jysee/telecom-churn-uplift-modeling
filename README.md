@@ -1,9 +1,23 @@
 # Treatment-Aware Telecom Churn Targeting
 
-An end-to-end data science project for deciding **which customers should receive
-a retention intervention**. It uses a real randomized telecom campaign dataset
-and evaluates incremental impact rather than treating churn prediction as a
-complete business solution.
+This project treats telecom churn retention as a business targeting decision:
+given a randomized retention campaign, decide **whether customers should be
+contacted at all** and, if so, which segment is worth targeting under explicit
+campaign economics.
+
+**Main result:** the best out-of-fold ranking came from a CatBoost churn-risk
+benchmark, but the selected policy is conservative: under the configured
+customer value and contact/offer costs, the estimated campaign value is not
+positive. On holdout, the top-20% segment shows an uplift estimate of 2.37%, but
+the bootstrap confidence intervals are wide and include zero for key metrics
+(AUUC [-0.00857, 0.02226], Qini [-0.00070, 0.01290], Uplift@20% [-4.58%,
+9.85%]).
+
+The project should therefore not be read as proof that a mass retention campaign
+would work. Its practical value is an auditable analytical workflow: validate the
+randomized dataset, avoid test leakage, compare risk targeting with uplift
+models, and turn uncertain model results into a cautious business
+recommendation.
 
 ## Why this project is different
 
@@ -107,11 +121,12 @@ Run tests:
 pytest
 ```
 
-Score a batch with the saved model:
+Score a batch with the saved model. Replace the input path with a CSV that has
+the same feature columns as the training dataset:
 
 ```bash
 python -m src.predict \
-  --input data/processed/customers_to_score.csv \
+  --input path/to/customers_to_score.csv \
   --output data/processed/scored_customers.csv
 ```
 
