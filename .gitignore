@@ -3,6 +3,9 @@ __pycache__/
 pytest-*/
 .ruff_cache/
 .ipynb_checkpoints/
+.env
+.env.*
+!.env.example
 .venv/
 venv/
 *.py[cod]
@@ -16,7 +19,5 @@ data/processed/*.parquet
 models/*
 !models/.gitkeep
 reports/metrics/*_predictions.csv
-
-.idea/
 
 .idea/
